@@ -37,7 +37,7 @@ public class WarmUpTest extends GraphAwareApiTest {
 
     @Test
     public void warmupReturnsOK() throws InterruptedException {
-        new NoInputBatchTransactionExecutor(getDatabase(), 1000, 100000, new UnitOfWork<NullItem>() {
+        new NoInputBatchTransactionExecutor(getDatabase(), 1000, 10000, new UnitOfWork<NullItem>() {
             @Override
             public void execute(GraphDatabaseService database, NullItem input, int batchNumber, int stepNumber) {
                 Node node1 = getOrCreateNode(database);
