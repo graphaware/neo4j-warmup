@@ -45,8 +45,8 @@ The version number has two parts. The first four numbers indicate compatibility 
 Using GraphAware WarmUp
 -----------------------
 
-In server mode, issue a GET request to * `http://your-server-address:7474/graphaware/warmup/` to warm up the caches.
-In Java, use the `warmup` method on the `WarmUp` class.
+In server mode, issue a GET request to `http://your-server-address:7474/graphaware/warmup/` to warm up the caches.
+In Java, use the `warmUp` method on the `WarmUp` class.
 
 License
 -------
