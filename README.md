@@ -1,10 +1,10 @@
 GraphAware Neo4j Warmup
 =======================
 
-Will be released with GraphAware Framework 2.1.3.12
+[![Build Status](https://travis-ci.org/graphaware/neo4j-warmup.png)](https://travis-ci.org/graphaware/neo4j-warmup) | <a href="http://graphaware.com/downloads/" target="_blank">Downloads</a> | Latest Release: 2.1.3.15.1
 
 GraphAware WarmUp is a simple piece of code that warms up Neo4j caches using a single API call by accessing the entire
-graph using all avaliable processors.
+graph using all available processors.
 
 Getting the Software
 --------------------
@@ -31,7 +31,7 @@ Releases are synced to <a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%
         <dependency>
             <groupId>com.graphaware.neo4j</groupId>
             <artifactId>warmup</artifactId>
-            <version>2.1.3.12.1</version>
+            <version>2.1.3.15.1</version>
         </dependency>
         ...
     </dependencies>
@@ -39,8 +39,8 @@ Releases are synced to <a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%
 #### Note on Versioning Scheme
 
 The version number has two parts. The first four numbers indicate compatibility with Neo4j GraphAware Framework.
- The last number is the version of the WarmUp library. For example, version 2.1.3.12.1 is version 1 of WarmUp
- compatible with GraphAware Neo4j Framework 2.1.3.12.
+ The last number is the version of the WarmUp library. For example, version 2.1.3.15.1 is version 1 of WarmUp
+ compatible with GraphAware Neo4j Framework 2.1.3.15.
 
 Using GraphAware WarmUp
 -----------------------
