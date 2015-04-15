@@ -26,8 +26,6 @@ import org.neo4j.graphdb.*;
 
 import java.util.Random;
 
-import static com.graphaware.test.util.TestUtils.get;
-
 /**
  * {@link com.graphaware.test.integration.NeoServerIntegrationTest} for {@link WarmUp} module and {@link WarmUpApi}.
  */
@@ -49,7 +47,7 @@ public class WarmUpTest extends GraphAwareApiTest {
 
         Thread.sleep(500);
 
-        get(baseUrl() + "/warmup", HttpStatus.OK_200);
+        httpClient.get(baseUrl() + "/warmup", HttpStatus.OK_200);
     }
 
     private Node getOrCreateNode(GraphDatabaseService database) {
