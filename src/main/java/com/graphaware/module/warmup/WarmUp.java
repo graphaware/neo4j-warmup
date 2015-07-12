@@ -1,19 +1,16 @@
 package com.graphaware.module.warmup;
 
-import com.graphaware.tx.executor.batch.BatchTransactionExecutor;
 import com.graphaware.tx.executor.batch.IterableInputBatchTransactionExecutor;
 import com.graphaware.tx.executor.batch.MultiThreadedBatchTransactionExecutor;
 import com.graphaware.tx.executor.batch.UnitOfWork;
-import com.graphaware.tx.executor.single.TransactionCallback;
-import org.neo4j.graphdb.Direction;
+import com.graphaware.tx.executor.input.AllNodes;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Relationship;
-import org.neo4j.tooling.GlobalGraphOperations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static org.neo4j.graphdb.Direction.*;
+import static org.neo4j.graphdb.Direction.OUTGOING;
 
 /**
  * A component able to warmup the caches using all available cores.
@@ -38,15 +35,10 @@ public class WarmUp {
      * Perform the warmup.
      */
     public void warmUp() {
-        BatchTransactionExecutor executor = new IterableInputBatchTransactionExecutor<>(
+        IterableInputBatchTransactionExecutor executor = new IterableInputBatchTransactionExecutor<>(
                 database,
                 BATCH_SIZE,
-                new TransactionCallback<Iterable<Node>>() {
-                    @Override
-                    public Iterable<Node> doInTransaction(GraphDatabaseService database) throws Exception {
-                        return GlobalGraphOperations.at(database).getAllNodes();
-                    }
-                },
+                new AllNodes(database, BATCH_SIZE),
                 new UnitOfWork<Node>() {
                     @Override
                     public void execute(GraphDatabaseService database, Node node, int batchNumber, int stepNumber) {
