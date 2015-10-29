@@ -82,6 +82,11 @@
             <artifactId>tx-executor</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.graphaware.neo4j</groupId>
+            <artifactId>server</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>
