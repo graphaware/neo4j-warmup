@@ -1,7 +1,7 @@
 GraphAware Neo4j Warmup
 =======================
 
-[![Build Status](https://travis-ci.org/graphaware/neo4j-warmup.png)](https://travis-ci.org/graphaware/neo4j-warmup) | <a href="http://graphaware.com/downloads/" target="_blank">Downloads</a> | Latest Release: 2.3.3.37.5
+[![Build Status](https://travis-ci.org/graphaware/neo4j-warmup.png)](https://travis-ci.org/graphaware/neo4j-warmup) | <a href="http://graphaware.com/downloads/" target="_blank">Downloads</a> | Latest Release: 3.0.0.37.5
 
 GraphAware WarmUp is a simple piece of code that warms up Neo4j caches using a single API call by accessing the entire
 graph using all available processors.
@@ -13,7 +13,7 @@ Getting the Software
 
 When using Neo4j in the <a href="http://docs.neo4j.org/chunked/stable/server-installation.html" target="_blank">standalone server</a> mode,
 you will need the <a href="https://github.com/graphaware/neo4j-framework" target="_blank">GraphAware Neo4j Framework</a> and GraphAware Neo4j WarmUp .jar files (both of which you can <a href="http://graphaware.com/downloads/" target="_blank">download here</a>) dropped
-into the `plugins` directory of your Neo4j installation. After Neo4j restart, you will be able to use the REST API.
+into the `plugins` directory of your Neo4j installation. After Neo4j restart, you will be able to use the REST API and stored procedures.
 
 ### Embedded Mode / Java Development
 
@@ -31,7 +31,7 @@ Releases are synced to <a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%
         <dependency>
             <groupId>com.graphaware.neo4j</groupId>
             <artifactId>warmup</artifactId>
-            <version>2.3.3.37.5</version>
+            <version>3.0.0.37.5</version>
         </dependency>
         ...
     </dependencies>
@@ -45,13 +45,13 @@ The version number has two parts. The first four numbers indicate compatibility 
 Using GraphAware WarmUp
 -----------------------
 
-In server mode, issue a GET request to `http://your-server-address:7474/graphaware/warmup/` to warm up the caches.
+In server mode, execute the `CALL ga.warmup.run()` Cypher query or issue a GET request to `http://your-server-address:7474/graphaware/warmup/` to warm up the caches.
 In Java, use the `warmUp` method on the `WarmUp` class.
 
 License
 -------
 
-Copyright (c) 2014 GraphAware
+Copyright (c) 2014-2016 GraphAware
 
 GraphAware is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
 as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.

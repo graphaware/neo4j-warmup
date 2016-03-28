@@ -14,8 +14,9 @@
  * <http://www.gnu.org/licenses/>.
  */
 
-package com.graphaware.module.warmup;
+package com.graphaware.module.warmup.api;
 
+import com.graphaware.module.warmup.logic.WarmUp;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
- * REST API for {@link com.graphaware.module.warmup.WarmUp}.
+ * REST API for {@link WarmUp}.
  */
 @Controller
 @RequestMapping("/warmup")

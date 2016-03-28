@@ -16,6 +16,8 @@
 
 package com.graphaware.module.warmup;
 
+import com.graphaware.module.warmup.api.WarmUpApi;
+import com.graphaware.module.warmup.logic.WarmUp;
 import com.graphaware.test.integration.GraphAwareIntegrationTest;
 import com.graphaware.tx.executor.batch.NoInputBatchTransactionExecutor;
 import org.eclipse.jetty.http.HttpStatus;
@@ -27,7 +29,7 @@ import java.util.Random;
 /**
  * {@link GraphAwareIntegrationTest} for {@link WarmUp} module and {@link WarmUpApi}.
  */
-public class WarmUpTest extends GraphAwareIntegrationTest {
+public class WarmUpApiTest extends GraphAwareIntegrationTest {
 
     private Random random = new Random();
 

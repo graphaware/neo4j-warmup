@@ -14,11 +14,10 @@
  * <http://www.gnu.org/licenses/>.
  */
 
-package com.graphaware.module.warmup;
+package com.graphaware.module.warmup.logic;
 
 import com.graphaware.tx.executor.batch.IterableInputBatchTransactionExecutor;
 import com.graphaware.tx.executor.batch.MultiThreadedBatchTransactionExecutor;
-import com.graphaware.tx.executor.batch.UnitOfWork;
 import com.graphaware.tx.executor.input.AllNodes;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
