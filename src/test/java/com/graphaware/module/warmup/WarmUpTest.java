@@ -16,10 +16,8 @@
 
 package com.graphaware.module.warmup;
 
-import com.graphaware.test.integration.GraphAwareApiTest;
-import com.graphaware.tx.executor.NullItem;
+import com.graphaware.test.integration.GraphAwareIntegrationTest;
 import com.graphaware.tx.executor.batch.NoInputBatchTransactionExecutor;
-import com.graphaware.tx.executor.batch.UnitOfWork;
 import org.eclipse.jetty.http.HttpStatus;
 import org.junit.Test;
 import org.neo4j.graphdb.*;
@@ -27,22 +25,19 @@ import org.neo4j.graphdb.*;
 import java.util.Random;
 
 /**
- * {@link com.graphaware.test.integration.NeoServerIntegrationTest} for {@link WarmUp} module and {@link WarmUpApi}.
+ * {@link GraphAwareIntegrationTest} for {@link WarmUp} module and {@link WarmUpApi}.
  */
-public class WarmUpTest extends GraphAwareApiTest {
+public class WarmUpTest extends GraphAwareIntegrationTest {
 
     private Random random = new Random();
 
     @Test
     public void warmupReturnsOK() throws InterruptedException {
-        new NoInputBatchTransactionExecutor(getDatabase(), 1000, 10000, new UnitOfWork<NullItem>() {
-            @Override
-            public void execute(GraphDatabaseService database, NullItem input, int batchNumber, int stepNumber) {
-                Node node1 = getOrCreateNode(database);
-                Node node2 = getOrCreateNode(database);
-                Relationship r = node1.createRelationshipTo(node2, DynamicRelationshipType.withName("SOME_TYPE_" + random.nextInt(10)));
-                r.setProperty("test", "something" + random.nextInt());
-            }
+        new NoInputBatchTransactionExecutor(getDatabase(), 1000, 10000, (database, input, batchNumber, stepNumber) -> {
+            Node node1 = getOrCreateNode(database);
+            Node node2 = getOrCreateNode(database);
+            Relationship r = node1.createRelationshipTo(node2, RelationshipType.withName("SOME_TYPE_" + random.nextInt(10)));
+            r.setProperty("test", "something" + random.nextInt());
         }).execute();
 
         Thread.sleep(500);

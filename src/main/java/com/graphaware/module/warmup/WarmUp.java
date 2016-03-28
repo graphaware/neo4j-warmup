@@ -55,15 +55,12 @@ public class WarmUp {
                 database,
                 BATCH_SIZE,
                 new AllNodes(database, BATCH_SIZE),
-                new UnitOfWork<Node>() {
-                    @Override
-                    public void execute(GraphDatabaseService database, Node node, int batchNumber, int stepNumber) {
-                        if (stepNumber % BATCH_SIZE == 1) {
-                            LOG.info("Warming up graph in batch number " + batchNumber);
-                        }
-
-                        accessEverything(node);
+                (database1, node, batchNumber, stepNumber) -> {
+                    if (stepNumber % BATCH_SIZE == 1) {
+                        LOG.info("Warming up graph in batch number " + batchNumber);
                     }
+
+                    accessEverything(node);
                 }
         );
 
