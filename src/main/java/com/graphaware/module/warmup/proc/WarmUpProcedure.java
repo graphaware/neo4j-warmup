@@ -19,7 +19,7 @@ package com.graphaware.module.warmup.proc;
 import com.graphaware.module.warmup.logic.WarmUp;
 import org.neo4j.collection.RawIterator;
 import org.neo4j.graphdb.GraphDatabaseService;
-import org.neo4j.helpers.collection.Iterables;
+import org.neo4j.helpers.collection.Iterators;
 import org.neo4j.kernel.api.exceptions.ProcedureException;
 import org.neo4j.kernel.api.proc.CallableProcedure;
 import org.neo4j.kernel.api.proc.Neo4jTypes;
@@ -41,6 +41,6 @@ public class WarmUpProcedure extends CallableProcedure.BasicProcedure {
     @Override
     public RawIterator<Object[], ProcedureException> apply(Context ctx, Object[] input) throws ProcedureException {
         warmUp.warmUp();
-        return Iterables.asRawIterator(Collections.<Object[]>singleton(new String[]{"DONE"}).iterator());
+        return Iterators.asRawIterator(Collections.<Object[]>singleton(new String[]{"DONE"}).iterator());
     }
 }
