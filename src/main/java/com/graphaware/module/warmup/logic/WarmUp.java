@@ -16,14 +16,14 @@
 
 package com.graphaware.module.warmup.logic;
 
+import com.graphaware.common.log.LoggerFactory;
 import com.graphaware.tx.executor.batch.IterableInputBatchTransactionExecutor;
 import com.graphaware.tx.executor.batch.MultiThreadedBatchTransactionExecutor;
 import com.graphaware.tx.executor.input.AllNodes;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Relationship;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.neo4j.logging.Log;
 
 import static org.neo4j.graphdb.Direction.OUTGOING;
 
@@ -32,7 +32,7 @@ import static org.neo4j.graphdb.Direction.OUTGOING;
  */
 public class WarmUp {
 
-    private static final Logger LOG = LoggerFactory.getLogger(WarmUp.class);
+    private static final Log LOG = LoggerFactory.getLogger(WarmUp.class);
     private static final int BATCH_SIZE = 1000;
 
     private final GraphDatabaseService database;
