@@ -1,5 +1,19 @@
-GraphAware Neo4j Warmup
-=======================
+GraphAware Neo4j Warmup - RETIRED
+=================================
+
+Warmup Has Been Retired
+-----------------------
+
+As of July 5th 2016, this module is retiring. This means it will no longer be maintained and released together with
+new versions of the GraphAware Framework and Neo4j. The last compatible Neo4j version is 3.0.3.
+
+If you're interested in its functionality, please use [APOC](https://github.com/neo4j-contrib/neo4j-apoc-procedures#warmup) instead. Unlike many other GraphAware modules, nobody is
+using Warmup in production, to the best of our knowledge.
+
+This repository will remain public. Please <a href="http://graphaware.com/contact/">get in touch</a> if you've been using Warmup and APOC isn't good enough for you.
+
+Introduction
+------------
 
 [![Build Status](https://travis-ci.org/graphaware/neo4j-warmup.png)](https://travis-ci.org/graphaware/neo4j-warmup) | <a href="http://graphaware.com/downloads/" target="_blank">Downloads</a> | Latest Release: 3.0.3.39.5
 
